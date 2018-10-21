@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header v-bind:title="title"  />
+      <router-view />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header.vue";
 
 export default {
-  name: 'app',
+  name: "app",
+  data() {
+    return {
+      title: "Vue Movie DB",
+    };
+  },
   components: {
-    HelloWorld
+    Header
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #fff;
+}
+.fade-enter-active, 
+.fade-leave-active{
+  transition: all 0.3s ease;
+}
+.fade-enter, 
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
 }
 </style>
